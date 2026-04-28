@@ -1,0 +1,226 @@
+/* auth.css — Telas de login */
+
+.auth-body {
+  background: var(--bg);
+  display:    flex;
+  min-height: 100vh;
+}
+
+.auth-wrapper {
+  display:  flex;
+  width:    100%;
+  min-height: 100vh;
+}
+
+/* ── Painel visual (esquerda) ────────────────────────────────── */
+.auth-panel {
+  display:    none;
+  flex:       0 0 42%;
+  background: var(--color-primary);
+  position:   relative;
+  overflow:   hidden;
+}
+
+/* Textura sutil */
+.auth-panel::before {
+  content:    '';
+  position:   absolute;
+  inset:      0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,.03) 0px,
+    rgba(255,255,255,.03) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+}
+
+.auth-panel::after {
+  content:    '';
+  position:   absolute;
+  bottom:     -80px; right: -80px;
+  width:      300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+}
+
+@media (min-width: 900px) { .auth-panel { display: flex; } }
+
+.auth-panel__inner {
+  position:       relative;
+  z-index:        1;
+  display:        flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:        3rem 2.5rem;
+  gap:            1rem;
+  width:          100%;
+}
+
+.auth-panel__logo {
+  margin-bottom: .5rem;
+}
+.auth-panel__logo img {
+  width:         64px; height: 64px;
+  border-radius: var(--radius-md);
+  background:    rgba(255,255,255,.15);
+  padding:       8px;
+}
+.auth-panel__logo-placeholder {
+  width:         64px; height: 64px;
+  border-radius: var(--radius-md);
+  background:    rgba(255,255,255,.15);
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  font-size:     2rem;
+}
+
+.auth-panel__title {
+  font-size:   1.75rem;
+  font-weight: 800;
+  color:       var(--color-primary-text);
+  line-height: 1.2;
+}
+
+.auth-panel__subtitle {
+  color:      rgba(255,255,255,.75);
+  font-size:  .95rem;
+  margin-top: -.5rem;
+}
+
+.auth-panel__features { margin-top: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
+.auth-feature {
+  display:     flex;
+  align-items: center;
+  gap:         .75rem;
+  color:       rgba(255,255,255,.9);
+  font-size:   .9rem;
+  font-weight: 500;
+}
+.auth-feature span {
+  width:           22px; height: 22px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  background:      rgba(255,255,255,.2);
+  border-radius:   50%;
+  font-size:       .75rem;
+  font-weight:     700;
+  flex-shrink:     0;
+}
+
+/* ── Área do formulário (direita) ────────────────────────────── */
+.auth-form-area {
+  flex:            1;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         2rem 1.25rem;
+  background:      var(--bg);
+}
+
+.auth-form-card {
+  width:     100%;
+  max-width: 400px;
+}
+
+/* ── Cabeçalho mobile (escola) ───────────────────────────────── */
+.auth-mobile-header {
+  text-align:    center;
+  margin-bottom: 2rem;
+}
+@media (min-width: 900px) { .auth-mobile-header { display: none; } }
+
+.auth-mobile-header__icon {
+  width:           60px; height: 60px;
+  border-radius:   var(--radius-md);
+  background:      var(--color-primary);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       1.8rem;
+  margin:          0 auto .75rem;
+}
+.auth-mobile-header__icon img { width: 100%; height: 100%; object-fit: contain; border-radius: var(--radius-md); }
+.auth-mobile-header__name  {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size:   1.2rem;
+  color:       var(--text);
+}
+.auth-mobile-header__sub   { font-size: .8rem; color: var(--text-muted); }
+
+/* ── Título do form ──────────────────────────────────────────── */
+.auth-title  {
+  font-family:   var(--font-display);
+  font-size:     1.5rem;
+  font-weight:   800;
+  color:         var(--text);
+  margin-bottom: .35rem;
+}
+.auth-subtitle {
+  font-size:     .875rem;
+  color:         var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* ── Divisor ─────────────────────────────────────────────────── */
+.auth-divider {
+  text-align:    center;
+  margin:        1.5rem 0 1rem;
+  position:      relative;
+  color:         var(--text-muted);
+  font-size:     .8rem;
+}
+.auth-divider::before {
+  content:    '';
+  position:   absolute;
+  top:        50%; left: 0; right: 0;
+  height:     1px;
+  background: var(--border);
+}
+.auth-divider span {
+  position:   relative;
+  background: var(--bg);
+  padding:    0 .75rem;
+}
+
+/* ── Links de alternância ────────────────────────────────────── */
+.auth-switch {
+  text-align:  center;
+  margin-top:  1.5rem;
+  font-size:   .875rem;
+  color:       var(--text-muted);
+}
+.auth-switch a { color: var(--color-primary); font-weight: 600; }
+
+/* ── Esqueci a senha ─────────────────────────────────────────── */
+.form-group--flex {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+}
+.forgot-link {
+  font-size:   .8125rem;
+  color:       var(--text-muted);
+}
+.forgot-link:hover { color: var(--color-primary); }
+
+/* ── Show/hide senha ─────────────────────────────────────────── */
+.input-password-wrapper { position: relative; }
+.input-password-wrapper .form-control { padding-right: 2.8rem; }
+.btn-show-pass {
+  position:        absolute;
+  right:           .75rem;
+  top:             50%;
+  transform:       translateY(-50%);
+  background:      none;
+  border:          none;
+  color:           var(--text-muted);
+  font-size:       1rem;
+  cursor:          pointer;
+  padding:         .25rem;
+  line-height:     1;
+}
+.btn-show-pass:hover { color: var(--text); }
